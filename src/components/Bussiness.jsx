@@ -8,19 +8,25 @@ export default function BussinessPage() {
     const [instagramurl,setInstagramUrl] = useState("")
     const [intrests,setIntrests] = useState([""])
 
+    let timer;
+    function handleUserChange(value) {
+        console.log(value);
+        setUserName(value);
+    }
+    function wrapper(e) {
+        const value = e.target.value;
+        clearTimeout(timer);
+        timer = setTimeout(() => handleUserChange(value),250)
+    }
     return (
         <div className="form-container">
                 <label for="name">Name: </label>
-                <input type="text" name="" id="" placeholder={"name"} required onChange={(e)=>{
-                    const value = e.target.value;
-                    console.log(value);
-                    setUserName(value);
-                }}/><br></br>
+                <input type="text" name="" id="" placeholder={"name"} required onChange={wrapper}/><br></br>
                 <label for="description">Description: </label>
                 <input type="text" name="" id="" placeholder={"description"} required onChange={(e)=>{
-                    const value = e.target.value;
-                    console.log(value);
-                    setDescription(value);
+                        const value = e.target.value;
+                        console.log(value);
+                        setDescription(value);
                 }}/><br></br>
                 <label for="description">Twitter URL: </label>
                 <input type="url" name="" id="" placeholder='Enter Url' required onChange={(e)=>{
