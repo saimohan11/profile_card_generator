@@ -16,7 +16,7 @@ export default function BussinessPage() {
     function wrapper(e) {
         const value = e.target.value;
         clearTimeout(timer);
-        timer = setTimeout(() => handleUserChange(value),250)
+        timer = setTimeout(() => handleUserChange(value),1000)
     }
     return (
         <div className="form-container">
